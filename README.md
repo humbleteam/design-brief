@@ -102,7 +102,7 @@ call notes, July 8._
 - **Two required bullets, three optional ones.** Problem and Audience block the brief if absent; the rest get a `(not stated - ...)` marker instead.
 - **The gap report is one compact block, then a full stop.** No partial brief gets built on a guess - a missing Problem or Audience triggers one gap-report block, nothing else.
 - **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped.
-- **Every bullet carries a source.** A footer names which input and section each bullet came from.
+- **Every bullet carries a source.** A footer names which input and section each bullet came from. A bullet whose origin the input never named - the usual case when a brief is pasted in without a footer and then edited - is marked `carried from the brief as given` rather than pinned on a guessed file name.
 - **An incremental edit touches exactly one bullet.** The directive maps to the bullet it changes; everything else stays byte-for-byte and the full brief is re-emitted - never a reply that reads as if the rest got deleted.
 - **Conflicting sources get surfaced, not resolved silently.** A doc saying B2B against a transcript saying B2C gets named as a conflict, not silently picked.
 

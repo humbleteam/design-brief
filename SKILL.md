@@ -68,6 +68,8 @@ _Source - Problem: <input name>; Audience: <input name>; Success metric: <input 
 
 For a large document, cite the section or heading, not just the filename: `Problem: kickoff-notes.docx, section "Current process"`.
 
+A bullet whose origin the input never names is written `carried from the brief as given` (the incremental-edit case, Step 6) or `not found`. Never write a document name the input did not state.
+
 This ends the fresh-brief path.
 
 ## Step 6 - incremental edit
@@ -75,8 +77,9 @@ This ends the fresh-brief path.
 1. Start from the existing brief exactly as given.
 2. Identify which single bullet the directive changes. A copy/platform/regulatory rule -> Constraints. An audience pivot -> Audience. A new target number -> Success metric. A new non-negotiable feature -> Must-haves. A reframed pain point -> Problem.
 3. Fold the change into that bullet. Keep every other bullet byte-for-byte identical - do not rephrase, tidy, or "improve" bullets the user did not touch.
-4. Update the source footer only for the bullet you changed, appending the new input (e.g. `Must-haves: kickoff-notes.docx + update, Jul 10`).
-5. Re-emit the full 5-bullet brief using the Step 5 format. Never reply with only the changed bullet - a partial answer reads as if the rest of the brief was deleted.
+4. Update the source footer only for the bullet you changed, appending the new input (e.g. `Must-haves: kickoff-notes.docx + update, Jul 10`). A brief this skill produced earlier in the conversation already has source names: carry them forward exactly.
+5. If the brief was pasted with no source footer, the footer still ships. Every bullet you did not touch is sourced `carried from the brief as given`, and the bullet you changed is sourced to the directive. Do not reach for a filename to fill the line: four bullets with no stated origin is a fact about the input, and naming a document the user never mentioned sends the next reader hunting for a file that does not exist. This is the one place where "the footer is not optional" and "never invent a value" would otherwise collide.
+6. Re-emit the full 5-bullet brief using the Step 5 format. Never reply with only the changed bullet - a partial answer reads as if the rest of the brief was deleted.
 
 Rebuilding the whole brief from the directive alone is the primary failure mode of this skill: a two-word directive like "now it's B2C" contains no information about Problem, Success metric, Must-haves, or Constraints, and guessing them from scratch silently destroys real information the team already gave you.
 
@@ -91,11 +94,13 @@ Rebuilding the whole brief from the directive alone is the primary failure mode 
 | Success metric, Must-haves, or Constraints is missing but Problem and Audience are present | Build the brief. Mark the missing bullet `(not stated - ...)`. Do not gap-report for these three. |
 | A directive arrives but no brief exists yet in the conversation | Treat it as a fresh brief with very thin input - most fields will gap-report. Do not fabricate a brief around a bare directive. |
 | Directive is ambiguous about which bullet it targets | Ask one clarifying question naming the 1-2 bullets it could plausibly belong to, rather than guessing. |
+| The existing brief was pasted with no source footer | Re-emit the footer anyway. Untouched bullets are sourced `carried from the brief as given`; the changed bullet is sourced to the directive. Never fill the gap with a guessed document name. |
+| The pasted brief carries a footer for some bullets only | Carry the named sources forward as they stand, and mark the rest `carried from the brief as given`. Provenance is per bullet, not per brief. |
 
 ## Rules that hold in every mode
 
 - Never invent a value. If it is not in the input, it is either a gap-report line (Problem/Audience) or a `(not stated - ...)` marker (the other three).
 - Audience needs a role, a rough size or segment, and a defining behavior - never just "users" or "customers."
 - Constraints must be checkable by someone other than the author. Drop a vague constraint rather than dressing it up as an enforceable one.
-- The source footer is not optional. Every bullet traces back to a named input.
+- The source footer is not optional. Every bullet traces back to a named input, or to `carried from the brief as given` when the input never named one. An invented document name is a worse answer than an honest gap.
 - An incremental edit always re-emits all 5 bullets. A one-bullet reply is a bug, not a shortcut.
