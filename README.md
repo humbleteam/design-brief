@@ -32,7 +32,7 @@ design-brief turns whatever a team has scattered around - a call transcript, pro
 - Extracts a fixed 5-bullet brief: Problem, Audience, Success metric, Must-haves, Constraints.
 - Refuses to build a brief on guesses: if Problem or Audience is absent from every source, it returns a gap report naming what is missing, then stops.
 - Marks Success metric, Must-haves, or Constraints `(not stated - ...)` when the input does not cover them, instead of guessing.
-- Handles incremental edits ("now it's B2C", "add constraint: iOS only") by folding the change into the right bullet and re-emitting the brief, unchanged elsewhere.
+- Handles incremental edits ("now it's B2C", "add constraint: iOS only") by folding each change into the bullet it targets and re-emitting the brief, unchanged elsewhere - including a directive that changes two bullets at once.
 - Surfaces conflicting sources ("the doc says B2B, the transcript says B2C") instead of silently picking one.
 
 ## Quick start
@@ -96,6 +96,36 @@ _Source - Problem, Audience, Success metric, Must-haves, Constraints: kickoff
 call notes, July 8._
 ```
 
+A follow-up directive changing two bullets at once - the success metric and the
+constraints:
+
+```
+Update the brief - the success metric is now 30% fewer missed delivery windows
+in the first quarter, and add a constraint: WCAG 2.2 AA.
+```
+
+Both targets are clear, so both changes land. Problem, Audience, and Must-haves
+come back byte-for-byte, and the footer moves only for the two bullets that
+changed:
+
+```
+## Design brief - Pathfinder (dispatch scheduling)
+
+- **Problem:** Dispatchers assign loads across 3 disconnected spreadsheets,
+  which is slow and causes missed delivery windows.
+- **Audience:** Freight dispatchers at mid-size trucking companies running
+  40-80 trucks.
+- **Success metric:** 30% fewer missed delivery windows in the first quarter.
+- **Must-haves:** Works offline in low-connectivity yard environments;
+  integrates with the client's existing ELD system.
+- **Constraints:** Web only for v1 - no budget for a native mobile app;
+  WCAG 2.2 AA.
+
+_Source - Problem: kickoff call notes, July 8; Audience: kickoff call notes,
+July 8; Success metric: update; Must-haves: kickoff call notes, July 8;
+Constraints: kickoff call notes, July 8 + update._
+```
+
 ## How it works
 
 - **Read everything before asking anything.** Freetext, docs, transcripts, chat history - all read before a field is marked missing.
@@ -103,12 +133,12 @@ call notes, July 8._
 - **The gap report is one compact block, then a full stop.** No partial brief gets built on a guess - a missing Problem or Audience triggers one gap-report block, nothing else.
 - **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped.
 - **Every bullet carries a source.** A footer names which input and section each bullet came from. A bullet whose origin the input never named - the usual case when a brief is pasted in without a footer and then edited - is marked `carried from the brief as given` rather than pinned on a guessed file name.
-- **An incremental edit touches exactly one bullet.** The directive maps to the bullet it changes; everything else stays byte-for-byte and the full brief is re-emitted - never a reply that reads as if the rest got deleted.
+- **An incremental edit touches the bullets the directive names, and no others.** Each change maps to its own bullet - one is the common case, two is ordinary - everything else stays byte-for-byte, and the full brief is re-emitted, never a reply that reads as if the rest got deleted.
 - **Conflicting sources get surfaced, not resolved silently.** A doc saying B2B against a transcript saying B2C gets named as a conflict, not silently picked.
 
 ## How is this different from just asking the model?
 
-A bare "write a design brief from this" prompt tends to paraphrase the input into one paragraph and invent a success metric or constraint that sounds reasonable but was never stated. Asking for an update - "now it's B2C" - usually rebuilds the brief from that one sentence, erasing the Problem, Must-haves, and Constraints it never repeated. This skill pins the structure to 5 named bullets, refuses to fabricate the two required ones, and treats an edit as a patch to one bullet, not a rewrite of the document.
+A bare "write a design brief from this" prompt tends to paraphrase the input into one paragraph and invent a success metric or constraint that sounds reasonable but was never stated. Asking for an update - "now it's B2C" - usually rebuilds the brief from that one sentence, erasing the Problem, Must-haves, and Constraints it never repeated. This skill pins the structure to 5 named bullets, refuses to fabricate the two required ones, and treats an edit as a patch to the bullets the directive names, not a rewrite of the document.
 
 ## FAQ
 
@@ -120,6 +150,9 @@ Paste or attach the transcript and ask for a brief. The skill reads it in full, 
 
 **How do I keep a design brief up to date?**
 Give the skill a directive naming what changed ("now it's B2C", "add constraint: iOS only"). It folds the change into the correct bullet, leaves the rest untouched, and re-emits the full brief.
+
+**Can I change two things in one update?**
+Yes. "We're B2C now and drop the offline requirement" carries two clear changes, so both land - one in Audience, one in Must-haves - and the other three bullets come back untouched. A clarifying question is for a change whose target bullet is unclear, not for a directive that names two of them.
 
 **Can Claude write a design brief for me?**
 Yes, from whatever unstructured input you already have - transcripts, docs, chat threads, freetext. It will not invent a problem or audience it cannot source; those two fields trigger a gap report.
