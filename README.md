@@ -92,8 +92,9 @@ Skill output:
   integrates with the client's existing ELD system.
 - **Constraints:** Web only for v1 - no budget for a native mobile app.
 
-_Source - Problem, Audience, Success metric, Must-haves, Constraints: kickoff
-call notes, July 8._
+_Source - Problem: kickoff call notes, July 8; Audience: kickoff call notes,
+July 8; Success metric: kickoff call notes, July 8; Must-haves: kickoff call
+notes, July 8; Constraints: kickoff call notes, July 8._
 ```
 
 A follow-up directive changing two bullets at once - the success metric and the
@@ -132,7 +133,7 @@ Constraints: kickoff call notes, July 8 + update._
 - **Two required bullets, three optional ones.** Problem and Audience block the brief if absent; the rest get a `(not stated - ...)` marker instead.
 - **The gap report is one compact block, then a full stop.** No partial brief gets built on a guess - a missing Problem or Audience triggers one gap-report block, nothing else.
 - **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped.
-- **Every bullet carries a source.** A footer names which input and section each bullet came from. A bullet whose origin the input never named - the usual case when a brief is pasted in without a footer and then edited - is marked `carried from the brief as given` rather than pinned on a guessed file name.
+- **Every bullet carries a source, named one by one.** A footer names which input and section each bullet came from, and it keeps that shape even when a single document answered all five - the grouped form has no slot for a bullet that was never found, and the first edit re-sources one bullet and has to expand it again. A bullet whose origin the input never named - the usual case when a brief is pasted in without a footer and then edited - is marked `carried from the brief as given` rather than pinned on a guessed file name.
 - **An incremental edit touches the bullets the directive names, and no others.** Each change maps to its own bullet - one is the common case, two is ordinary - everything else stays byte-for-byte, and the full brief is re-emitted, never a reply that reads as if the rest got deleted.
 - **Conflicting sources get surfaced, not resolved silently.** A doc saying B2B against a transcript saying B2C gets named as a conflict, not silently picked.
 

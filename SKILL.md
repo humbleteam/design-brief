@@ -68,6 +68,8 @@ _Source - Problem: <input name>; Audience: <input name>; Success metric: <input 
 
 For a large document, cite the section or heading, not just the filename: `Problem: kickoff-notes.docx, section "Current process"`.
 
+The footer names all five bullets one by one, and it keeps that shape when a single input answered every one of them. Collapsing them onto one shared source (`Problem, Audience, Success metric, Must-haves, Constraints: kickoff notes, July 8`) is shorter and reads fine on the day it is written, but it is a form the brief outgrows: it has nowhere to put `not found` for a bullet that gap-marked, and the first incremental edit re-sources one bullet and has to expand the line anyway. Two footer shapes for one skill also means a reader has to work out which one they are looking at before they can tell where a bullet came from. Five named bullets say the same thing in every state of the brief.
+
 A bullet whose origin the input never names is written `carried from the brief as given` (the incremental-edit case, Step 6) or `not found`. Never write a document name the input did not state.
 
 This ends the fresh-brief path.
@@ -103,12 +105,13 @@ Rebuilding the whole brief from the directive alone is the primary failure mode 
 | A compound directive where one part is clear and another is not | Apply the clear parts and re-emit the brief, then ask about the unclear part alone, naming the changes already applied. A clarifying question that covers the whole directive makes the user restate what you understood. |
 | The existing brief was pasted with no source footer | Re-emit the footer anyway. Untouched bullets are sourced `carried from the brief as given`; the changed bullet is sourced to the directive. Never fill the gap with a guessed document name. |
 | The pasted brief carries a footer for some bullets only | Carry the named sources forward as they stand, and mark the rest `carried from the brief as given`. Provenance is per bullet, not per brief. |
+| Every bullet traces back to the same single input | The footer still names all five, one by one. Do not compress them into one shared source line: the grouped form has no slot for a `not found` bullet, and the first edit that re-sources one bullet has to expand it again. |
 
 ## Rules that hold in every mode
 
 - Never invent a value. If it is not in the input, it is either a gap-report line (Problem/Audience) or a `(not stated - ...)` marker (the other three).
 - Audience needs a role, a rough size or segment, and a defining behavior - never just "users" or "customers."
 - Constraints must be checkable by someone other than the author. Drop a vague constraint rather than dressing it up as an enforceable one.
-- The source footer is not optional. Every bullet traces back to a named input, or to `carried from the brief as given` when the input never named one. An invented document name is a worse answer than an honest gap.
+- The source footer is not optional, and it names every bullet separately even when one input answered all five. Every bullet traces back to a named input, or to `carried from the brief as given` when the input never named one. An invented document name is a worse answer than an honest gap.
 - An incremental edit always re-emits all 5 bullets. A one-bullet reply is a bug, not a shortcut.
 - An incremental edit changes every bullet the directive names, and no others. One bullet is the common case, not a cap - a directive carrying two clear changes gets both.
