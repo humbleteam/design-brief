@@ -32,6 +32,7 @@ design-brief turns whatever a team has scattered around - a call transcript, pro
 - Extracts a fixed 5-bullet brief: Problem, Audience, Success metric, Must-haves, Constraints.
 - Refuses to build a brief on guesses: if Problem or Audience is absent from every source, it returns a gap report naming what is missing, then stops.
 - Marks Success metric, Must-haves, or Constraints `(not stated - ...)` when the input does not cover them, instead of guessing.
+- Ships a bullet with what the input supports when that is short of its count range - two must-haves, one constraint - and marks the shortfall rather than padding it out with an invented one.
 - Handles incremental edits ("now it's B2C", "add constraint: iOS only") by folding each change into the bullet it targets and re-emitting the brief, unchanged elsewhere - including a directive that changes two bullets at once.
 - Surfaces conflicting sources ("the doc says B2B, the transcript says B2C") instead of silently picking one.
 
@@ -89,13 +90,21 @@ Skill output:
 - **Success metric:** Cut load-assignment time in half within the first
   month of use.
 - **Must-haves:** Works offline in low-connectivity yard environments;
-  integrates with the client's existing ELD system.
-- **Constraints:** Web only for v1 - no budget for a native mobile app.
+  integrates with the client's existing ELD system. (2 of 3-5 - what else is
+  non-negotiable here?)
+- **Constraints:** Web only for v1 - no budget for a native mobile app. (1 of
+  2-4 - what else is enforceable here?)
 
 _Source - Problem: kickoff call notes, July 8; Audience: kickoff call notes,
 July 8; Success metric: kickoff call notes, July 8; Must-haves: kickoff call
 notes, July 8; Constraints: kickoff call notes, July 8._
 ```
+
+Two must-haves and one constraint is what those notes support, so both bullets
+ship short and say so. The counts are a target shape, not a gate: padding
+Must-haves up to three means inventing a non-negotiable, and marking a bullet
+that carries two real entries `(not stated - ...)` asks the client for something
+they already gave.
 
 A follow-up directive changing two bullets at once - the success metric and the
 constraints:
@@ -118,7 +127,8 @@ changed:
   40-80 trucks.
 - **Success metric:** 30% fewer missed delivery windows in the first quarter.
 - **Must-haves:** Works offline in low-connectivity yard environments;
-  integrates with the client's existing ELD system.
+  integrates with the client's existing ELD system. (2 of 3-5 - what else is
+  non-negotiable here?)
 - **Constraints:** Web only for v1 - no budget for a native mobile app;
   WCAG 2.2 AA.
 
@@ -127,6 +137,10 @@ July 8; Success metric: update; Must-haves: kickoff call notes, July 8;
 Constraints: kickoff call notes, July 8 + update._
 ```
 
+The new constraint takes that bullet to two, so its shortfall marker clears
+itself. Must-haves still carries two, so its marker stays until the input
+answers the question in it.
+
 ## How it works
 
 - **Read everything before asking anything.** Freetext, docs, transcripts, chat history - all read before a field is marked missing.
@@ -134,6 +148,7 @@ Constraints: kickoff call notes, July 8 + update._
 - **The gap report is one compact block, then a full stop.** No partial brief gets built on a guess - a missing Problem or Audience triggers one gap-report block, nothing else.
 - **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped.
 - **Every bullet carries a source, named one by one.** A footer names which input and section each bullet came from, and it keeps that shape even when a single document answered all five - the grouped form has no slot for a bullet that was never found, and the first edit re-sources one bullet and has to expand it again. A bullet whose origin the input never named - the usual case when a brief is pasted in without a footer and then edited - is marked `carried from the brief as given` rather than pinned on a guessed file name.
+- **The counts are a target, not a gate.** 3-5 must-haves and 2-4 constraints describe the brief a full input produces. A bullet with fewer real entries than that ships anyway, marked `(2 of 3-5 - ...)`, because padding to the floor invents a non-negotiable and `(not stated - ...)` re-asks for what the input already gave. Above the ceiling nothing is cut: nine stated must-haves all ship, with a question about which are truly non-negotiable.
 - **An incremental edit touches the bullets the directive names, and no others.** Each change maps to its own bullet - one is the common case, two is ordinary - everything else stays byte-for-byte, and the full brief is re-emitted, never a reply that reads as if the rest got deleted.
 - **Conflicting sources get surfaced, not resolved silently.** A doc saying B2B against a transcript saying B2C gets named as a conflict, not silently picked.
 
@@ -154,6 +169,9 @@ Give the skill a directive naming what changed ("now it's B2C", "add constraint:
 
 **Can I change two things in one update?**
 Yes. "We're B2C now and drop the offline requirement" carries two clear changes, so both land - one in Audience, one in Must-haves - and the other three bullets come back untouched. A clarifying question is for a change whose target bullet is unclear, not for a directive that names two of them.
+
+**What if I only have two must-haves?**
+The brief ships with two. The 3-5 range is the shape a complete input produces, not a quota the bullet has to fill: the bullet comes back as the two real entries plus `(2 of 3-5 - what else is non-negotiable here?)`. Padding it to three would mean inventing a non-negotiable feature, which is the one thing this skill will not do. The same holds the other way: nine stated must-haves all ship, with a question about which of them are truly non-negotiable, rather than a silent cut down to five.
 
 **Can Claude write a design brief for me?**
 Yes, from whatever unstructured input you already have - transcripts, docs, chat threads, freetext. It will not invent a problem or audience it cannot source; those two fields trigger a gap report.

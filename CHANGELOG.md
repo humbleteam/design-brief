@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.4.0] - 2026-09-10
+
+- Fixed the count ranges on the three optional bullets, which were written as requirements and had no state for a bullet that is stated but short. Step 3 asks for 3-5 must-haves and 2-4 constraints, and a real input rarely lands inside either range: the README's own worked example ships two must-haves and one constraint, under both floors, with no rule permitting it. The three moves available were all illegal - pad the bullet to the floor, which invents a non-negotiable and breaks the skill's first rule; mark it `(not stated - ...)`, which is false when two entries are stated and re-asks for what the input already gave; or ship short and silent, which is what the example did.
+- The counts are now defined as the shape to aim for, not a gate. A bullet is stated once the input supports one real entry, and it ships with what the input supports plus a shortfall marker inside the bullet: `(2 of 3-5 - what else is non-negotiable here?)`. `(not stated - ...)` is now the zero-entry marker only, and Problem and Audience are still the only two bullets that can block a brief.
+- Above the ceiling nothing is cut. Nine stated must-haves all ship, with one question under the brief about which are truly non-negotiable, because trimming to five drops information the team gave and the input never says which four matter least.
+- Named the case that manufactures the shortfall: Step 3 requires dropping unenforceable constraints, so a brief that starts with three and drops two ends at one. That is a correct outcome recorded as a shortfall, not a reason to put "make it modern" back.
+- Step 6 covers removal directives with the same rule, and a bullet a directive empties completely is marked `(none - removed on this edit)` rather than `(not stated - ...)`, which would ask the user for what they just removed.
+- Fixed the README example, which was the one place the unmarked short bullet appeared, and it now shows the marker clearing itself when the follow-up edit takes Constraints to two. New FAQ answer on a brief with only two must-haves, four new edge cases, and a rule in "Rules that hold in every mode".
+
 ## [1.3.0] - 2026-09-05
 
 - Fixed the source footer, which shipped in two different shapes without a rule saying which one applies when. Step 5's template names all five bullets one by one (`Problem: <x>; Audience: <x>; ...`) and the edge cases say provenance is per bullet, not per brief, but the README's fresh-brief example collapsed all five onto one shared source (`Problem, Audience, Success metric, Must-haves, Constraints: kickoff call notes, July 8`) while the incremental-edit example two blocks below used the per-bullet form. A reader had to work out which shape they were looking at before they could tell where a bullet came from, and nothing said whether the short form was a permitted compression or a mistake.
