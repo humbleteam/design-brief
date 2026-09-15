@@ -26,7 +26,7 @@ If the input describes more than one distinct project, stop and ask which projec
 - **Audience** - the specific user role, rough size or segment, and a defining behavior or need. Required. "Users" is not an audience; "freelance expedition guides booking 5-20 trips a year" is.
 - **Success metric** - one observable, measurable outcome. Optional but flag if missing.
 - **Must-haves** - 3-5 non-negotiable features or qualities. Optional but flag if missing.
-- **Constraints** - 2-4 enforceable limits: accessibility, platform, brand, regulatory, budget, timeline. Optional but flag if missing. Drop anything unenforceable ("make it modern") rather than rephrasing it into something that only sounds checkable.
+- **Constraints** - 2-4 enforceable limits: accessibility, platform, brand, regulatory, budget, timeline. Optional but flag if missing. Drop anything unenforceable ("make it modern") rather than rephrasing it into something that only sounds checkable, and name what you dropped under the brief - see below.
 
 ### What the counts mean
 
@@ -37,6 +37,20 @@ The counts on the three optional bullets - one metric, 3-5 must-haves, 2-4 const
 - **Zero entries.** The `(not stated - ...)` marker, unchanged.
 
 Dropping an unenforceable constraint is the commonest way a bullet lands under its floor - the rule above requires it, and a brief that starts with three constraints and drops two of them ends at one. That is the correct outcome, recorded as a shortfall. Putting "make it modern" back to reach 2 is not.
+
+### A dropped entry is named, not just gone
+
+Dropping is required. Dropping silently is not, and it is what the skill did. The brief comes back with `(1 of 2-4 - what else is enforceable here?)` on Constraints and no sign anywhere that "make it modern" was read at all, so the only fact the team has is that the bullet is short. The rational answer to a short bullet is to supply what is missing, and the thing they supply is the line they already gave, which gets dropped again. Step 2 exists to stop this skill asking twice for what the input carried; a drop nobody can see does the same damage from the other end.
+
+A dropped entry ships as its own line under the brief, after the source footer, quoting the entry as the input stated it and saying what would make it checkable:
+
+```
+_Dropped as unenforceable - "make it modern": what would make this checkable? A product it should look current against, a design system to match, or a specific visual quality someone other than the author can confirm._
+```
+
+One line per dropped entry. This is not a gap report and it blocks nothing: the brief above it is complete and shippable. The line is an offer to convert a wish into a constraint, which is the only route by which "make it modern" can legitimately come back.
+
+Quote the entry as stated. Paraphrasing it into something tidier hides which words were the problem, and the point of the line is to hand those words back.
 
 Source every value directly from the input. Do not infer a success metric from a vague ambition, and do not round a stated audience up into a broader one.
 
@@ -74,11 +88,16 @@ Output format:
 - **Constraints:** <... or "(not stated - need 2-4 enforceable limits)">
 
 _Source - Problem: <input name>; Audience: <input name>; Success metric: <input name or "not found">; Must-haves: <input name>; Constraints: <input name or "not found">._
+
+_Dropped as unenforceable - "<entry as the input stated it>": <what would make it checkable>._
+_Above 3-5 must-haves - <n> stated: which of these are truly non-negotiable?_
 ```
 
 For a large document, cite the section or heading, not just the filename: `Problem: kickoff-notes.docx, section "Current process"`.
 
 A bullet short of its range carries the shortfall marker from Step 3 inside the bullet, after its entries. The footer is unaffected: a short bullet has a source like any other.
+
+The two lines under the footer are where everything that happened to a bullet but is not in it goes: one per dropped entry, and one per bullet over its ceiling. Both are present only when they apply and are never shipped empty, and neither blocks the brief. Until now the over-the-ceiling question was named in Step 3 and had nowhere in this format to sit, which is the same hole as the silent drop, one bullet along.
 
 The footer names all five bullets one by one, and it keeps that shape when a single input answered every one of them. Collapsing them onto one shared source (`Problem, Audience, Success metric, Must-haves, Constraints: kickoff notes, July 8`) is shorter and reads fine on the day it is written, but it is a form the brief outgrows: it has nowhere to put `not found` for a bullet that gap-marked, and the first incremental edit re-sources one bullet and has to expand the line anyway. Two footer shapes for one skill also means a reader has to work out which one they are looking at before they can tell where a bullet came from. Five named bullets say the same thing in every state of the brief.
 
@@ -99,7 +118,8 @@ This ends the fresh-brief path.
 5. Update the source footer for each bullet you changed, appending the new input (e.g. `Must-haves: kickoff-notes.docx + update, Jul 10`). A brief this skill produced earlier in the conversation already has source names: carry them forward exactly.
 6. If the brief was pasted with no source footer, the footer still ships. Every bullet you did not touch is sourced `carried from the brief as given`, and each bullet you changed is sourced to the directive. Do not reach for a filename to fill the line: four bullets with no stated origin is a fact about the input, and naming a document the user never mentioned sends the next reader hunting for a file that does not exist. This is the one place where "the footer is not optional" and "never invent a value" would otherwise collide.
 7. A directive that removes entries runs the same count rule as Step 3. What is left ships with a shortfall marker if the removal lands the bullet under its range, and a bullet the directive empties completely is marked `(none - removed on this edit)`, not `(not stated - ...)`, which would ask the user for something they just took out.
-8. Re-emit the full 5-bullet brief using the Step 5 format. Never reply with only the changed bullets - a partial answer reads as if the rest of the brief was deleted.
+8. A directive that adds an entry runs Step 3's rules on it before it lands. An added constraint that someone other than the author cannot check is dropped exactly as it would be on the fresh path, and the drop line ships under the re-emitted brief. Without that line the brief comes back byte-for-byte identical to the one the user pasted, with nothing anywhere saying their directive was read - the silent absence the paragraph below names, arrived at from the other side and harder to spot, because here the skill did the right thing and said nothing about it. An added audience that is only "users", or a success metric that is an ambition rather than an observable outcome, goes to the clarifying question in 3 rather than into the bullet.
+9. Re-emit the full 5-bullet brief using the Step 5 format. Never reply with only the changed bullets - a partial answer reads as if the rest of the brief was deleted.
 
 Rebuilding the whole brief from the directive alone is the primary failure mode of this skill: a two-word directive like "now it's B2C" contains no information about Problem, Success metric, Must-haves, or Constraints, and guessing them from scratch silently destroys real information the team already gave you. Applying half of a compound directive is the same loss on a smaller scale, and it is harder to spot: the brief comes back complete and well formed, with one of the changes the user asked for simply absent.
 
@@ -120,7 +140,9 @@ Rebuilding the whole brief from the directive alone is the primary failure mode 
 | The pasted brief carries a footer for some bullets only | Carry the named sources forward as they stand, and mark the rest `carried from the brief as given`. Provenance is per bullet, not per brief. |
 | The input supports fewer entries than a bullet's range (2 must-haves, 1 constraint) | Ship what the input supports and mark the shortfall inside the bullet: `(2 of 3-5 - what else is non-negotiable here?)`. Never pad to the floor, and never use `(not stated - ...)`, which asks again for what the input already gave. |
 | The input carries more than a bullet's ceiling (9 must-haves) | Keep all of them and ask under the brief which are truly non-negotiable. Never cut the list down to five to fit the shape. |
-| Dropping unenforceable constraints leaves fewer than 2 | Correct outcome. Mark the shortfall; do not restore the dropped one to make the count. |
+| Dropping unenforceable constraints leaves fewer than 2 | Correct outcome. Mark the shortfall, and name each dropped entry on its own line under the brief with what would make it checkable. A shortfall marker alone tells the team the bullet is short and not that their line was read, so they supply it again. |
+| A directive adds a constraint that is not checkable ("make it feel premium") | Drop it by the same rule and ship the drop line with the re-emitted brief. Never return the brief unchanged and silent - that is indistinguishable from ignoring the directive. |
+| A directive's only change is one Step 3's rules drop | The brief re-emits byte-for-byte by design, and the drop line is the whole answer. Say which entry was dropped and what would make it checkable, so the user can restate it as something enforceable. |
 | A directive removes the last entry in a bullet | Mark it `(none - removed on this edit)`. The `(not stated - ...)` marker would ask the user for the thing they just removed. |
 | Every bullet traces back to the same single input | The footer still names all five, one by one. Do not compress them into one shared source line: the grouped form has no slot for a `not found` bullet, and the first edit that re-sources one bullet has to expand it again. |
 
@@ -129,7 +151,7 @@ Rebuilding the whole brief from the directive alone is the primary failure mode 
 - Never invent a value. If it is not in the input, it is either a gap-report line (Problem/Audience) or a `(not stated - ...)` marker (the other three).
 - The counts are a target shape, not a gate. A bullet ships with what the input supports, plus a shortfall marker when that is under its range. Padding a bullet to reach 3 must-haves or 2 constraints is inventing a value, and trimming one to fit a ceiling is dropping a fact the team gave you.
 - Audience needs a role, a rough size or segment, and a defining behavior - never just "users" or "customers."
-- Constraints must be checkable by someone other than the author. Drop a vague constraint rather than dressing it up as an enforceable one.
+- Constraints must be checkable by someone other than the author. Drop a vague constraint rather than dressing it up as an enforceable one, and name the drop under the brief. A drop the output never mentions reads as a line nobody read, and it comes back next round.
 - The source footer is not optional, and it names every bullet separately even when one input answered all five. Every bullet traces back to a named input, or to `carried from the brief as given` when the input never named one. An invented document name is a worse answer than an honest gap.
 - An incremental edit always re-emits all 5 bullets. A one-bullet reply is a bug, not a shortcut.
 - An incremental edit changes every bullet the directive names, and no others. One bullet is the common case, not a cap - a directive carrying two clear changes gets both.

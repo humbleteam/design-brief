@@ -76,6 +76,7 @@ Notes from kickoff call, July 8:
 - Needs to work offline in the truck yard where wifi is spotty.
 - Must integrate with their existing ELD (electronic logging device) system.
 - No budget yet for a native mobile app - web only for v1.
+- Should feel modern - the tool they use now looks like it was built in 2009.
 ```
 
 Skill output:
@@ -98,6 +99,10 @@ Skill output:
 _Source - Problem: kickoff call notes, July 8; Audience: kickoff call notes,
 July 8; Success metric: kickoff call notes, July 8; Must-haves: kickoff call
 notes, July 8; Constraints: kickoff call notes, July 8._
+
+_Dropped as unenforceable - "should feel modern": what would make this
+checkable? A product it should look current against, a design system to match,
+or a specific visual quality someone other than the author can confirm._
 ```
 
 Two must-haves and one constraint is what those notes support, so both bullets
@@ -105,6 +110,15 @@ ship short and say so. The counts are a target shape, not a gate: padding
 Must-haves up to three means inventing a non-negotiable, and marking a bullet
 that carries two real entries `(not stated - ...)` asks the client for something
 they already gave.
+
+The notes named a fourth thing the client wants, and "should feel modern" is not
+enforceable: two people can disagree about whether it was delivered and neither
+can point at anything. It gets dropped from the bullet, and it gets named under
+the brief, because those are separate decisions. Dropping it silently would leave
+the client with a Constraints bullet marked short and nothing saying their line
+was read, so the natural thing for them to do is supply it again - and it would
+be dropped again. The line hands the words back with the one question that can
+turn them into a constraint.
 
 A follow-up directive changing two bullets at once - the success metric and the
 constraints:
@@ -135,18 +149,24 @@ changed:
 _Source - Problem: kickoff call notes, July 8; Audience: kickoff call notes,
 July 8; Success metric: update; Must-haves: kickoff call notes, July 8;
 Constraints: kickoff call notes, July 8 + update._
+
+_Dropped as unenforceable - "should feel modern": what would make this
+checkable? A product it should look current against, a design system to match,
+or a specific visual quality someone other than the author can confirm._
 ```
 
 The new constraint takes that bullet to two, so its shortfall marker clears
 itself. Must-haves still carries two, so its marker stays until the input
-answers the question in it.
+answers the question in it. The drop line stays too: the entry is still dropped
+and still unanswered, and a line that disappears on the next edit would read as
+the question having been resolved.
 
 ## How it works
 
 - **Read everything before asking anything.** Freetext, docs, transcripts, chat history - all read before a field is marked missing.
 - **Two required bullets, three optional ones.** Problem and Audience block the brief if absent; the rest get a `(not stated - ...)` marker instead.
 - **The gap report is one compact block, then a full stop.** No partial brief gets built on a guess - a missing Problem or Audience triggers one gap-report block, nothing else.
-- **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped.
+- **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped - and named under the brief, with the question that would turn it into a constraint, so the team can restate it instead of supplying it twice.
 - **Every bullet carries a source, named one by one.** A footer names which input and section each bullet came from, and it keeps that shape even when a single document answered all five - the grouped form has no slot for a bullet that was never found, and the first edit re-sources one bullet and has to expand it again. A bullet whose origin the input never named - the usual case when a brief is pasted in without a footer and then edited - is marked `carried from the brief as given` rather than pinned on a guessed file name.
 - **The counts are a target, not a gate.** 3-5 must-haves and 2-4 constraints describe the brief a full input produces. A bullet with fewer real entries than that ships anyway, marked `(2 of 3-5 - ...)`, because padding to the floor invents a non-negotiable and `(not stated - ...)` re-asks for what the input already gave. Above the ceiling nothing is cut: nine stated must-haves all ship, with a question about which are truly non-negotiable.
 - **An incremental edit touches the bullets the directive names, and no others.** Each change maps to its own bullet - one is the common case, two is ordinary - everything else stays byte-for-byte, and the full brief is re-emitted, never a reply that reads as if the rest got deleted.
