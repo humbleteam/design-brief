@@ -161,12 +161,19 @@ answers the question in it. The drop line stays too: the entry is still dropped
 and still unanswered, and a line that disappears on the next edit would read as
 the question having been resolved.
 
+Answering it is the one thing that retires it. A later directive saying what
+"should feel modern" meant - "match the information density of the Stripe
+dashboard" - is not a new constraint but the reply that line asked for, so it
+lands in Constraints and the line goes with it. Restated and still not checkable
+("it should feel fresh"), it replaces the line rather than adding a second one
+underneath: one line per dropped entry, not one per attempt at it.
+
 ## How it works
 
 - **Read everything before asking anything.** Freetext, docs, transcripts, chat history - all read before a field is marked missing.
 - **Two required bullets, three optional ones.** Problem and Audience block the brief if absent; the rest get a `(not stated - ...)` marker instead.
 - **The gap report is one compact block, then a full stop.** No partial brief gets built on a guess - a missing Problem or Audience triggers one gap-report block, nothing else.
-- **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped - and named under the brief, with the question that would turn it into a constraint, so the team can restate it instead of supplying it twice.
+- **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped - and named under the brief, with the question that would turn it into a constraint, so the team can restate it instead of supplying it twice. That line rides every later edit until they answer it, and a checkable answer retires it into the bullet rather than sitting next to the constraint it just produced.
 - **Every bullet carries a source, named one by one.** A footer names which input and section each bullet came from, and it keeps that shape even when a single document answered all five - the grouped form has no slot for a bullet that was never found, and the first edit re-sources one bullet and has to expand it again. A bullet whose origin the input never named - the usual case when a brief is pasted in without a footer and then edited - is marked `carried from the brief as given` rather than pinned on a guessed file name.
 - **The counts are a target, not a gate.** 3-5 must-haves and 2-4 constraints describe the brief a full input produces. A bullet with fewer real entries than that ships anyway, marked `(2 of 3-5 - ...)`, because padding to the floor invents a non-negotiable and `(not stated - ...)` re-asks for what the input already gave. Above the ceiling nothing is cut: nine stated must-haves all ship, with a question about which are truly non-negotiable.
 - **An incremental edit touches the bullets the directive names, and no others.** Each change maps to its own bullet - one is the common case, two is ordinary - everything else stays byte-for-byte, and the full brief is re-emitted, never a reply that reads as if the rest got deleted.
