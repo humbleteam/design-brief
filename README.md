@@ -31,7 +31,7 @@ design-brief turns whatever a team has scattered around - a call transcript, pro
 - Reads every source in the input - transcripts, docs, freetext, chat history - before asking a question, and never asks for a field already answered.
 - Extracts a fixed 5-bullet brief: Problem, Audience, Success metric, Must-haves, Constraints.
 - Refuses to build a brief on guesses: if Problem or Audience is absent from every source, it returns a gap report naming what is missing, then stops.
-- Marks Success metric, Must-haves, or Constraints `(not stated - ...)` when the input does not cover them, instead of guessing.
+- Marks Success metric, Must-haves, or Constraints `(not stated - ...)` when the input does not cover them, instead of guessing - and `(none - removed on this edit)` when an edit empties a bullet the input had answered, which is a settled state rather than a question.
 - Ships a bullet with what the input supports when that is short of its count range - two must-haves, one constraint - and marks the shortfall rather than padding it out with an invented one.
 - Handles incremental edits ("now it's B2C", "add constraint: iOS only") by folding each change into the bullet it targets and re-emitting the brief, unchanged elsewhere - including a directive that changes two bullets at once.
 - Surfaces conflicting sources ("the doc says B2B, the transcript says B2C") instead of silently picking one.
@@ -171,7 +171,7 @@ underneath: one line per dropped entry, not one per attempt at it.
 ## How it works
 
 - **Read everything before asking anything.** Freetext, docs, transcripts, chat history - all read before a field is marked missing.
-- **Two required bullets, three optional ones.** Problem and Audience block the brief if absent; the rest get a `(not stated - ...)` marker instead.
+- **Two required bullets, three optional ones.** Problem and Audience block the brief if absent; the rest get a `(not stated - ...)` marker instead. An empty bullet says which kind of empty it is: `(not stated - ...)` when no source answered it and the text after the dash says what would, `(none - removed on this edit)` when a directive took the last entry out, where there is nothing left to ask for.
 - **The gap report is one compact block, then a full stop.** No partial brief gets built on a guess - a missing Problem or Audience triggers one gap-report block, nothing else.
 - **Audience and constraints need to be specific and checkable.** "Users" fails; "freelance expedition guides booking 5-20 trips a year" passes. "Mobile-first, WCAG AA, no native app in v1" survives; "make it modern" gets dropped - and named under the brief, with the question that would turn it into a constraint, so the team can restate it instead of supplying it twice. That line rides every later edit until they answer it, and a checkable answer retires it into the bullet rather than sitting next to the constraint it just produced.
 - **Every bullet carries a source, named one by one.** A footer names which input and section each bullet came from, and it keeps that shape even when a single document answered all five - the grouped form has no slot for a bullet that was never found, and the first edit re-sources one bullet and has to expand it again. A bullet whose origin the input never named - the usual case when a brief is pasted in without a footer and then edited - is marked `carried from the brief as given` rather than pinned on a guessed file name.

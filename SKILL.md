@@ -34,7 +34,7 @@ The counts on the three optional bullets - one metric, 3-5 must-haves, 2-4 const
 
 - **Under the range.** Ship the entries you have and mark the shortfall inside the bullet, after the entries: `(2 of 3-5 - what else is non-negotiable here?)`. Never pad to reach the floor. The bullet is not `(not stated - ...)` either, because that marker asks for a bullet the input never answered, and re-asking for what the input already gave is the mistake Step 2 exists to prevent. It is not a gap report: Problem and Audience are still the only two bullets that block a brief.
 - **Over the range.** Keep every entry the input calls non-negotiable and ask, under the brief, which of them truly are. Cutting nine must-haves down to five to fit the shape drops information the team gave you, and nothing in the input says which four matter least.
-- **Zero entries.** The `(not stated - ...)` marker, unchanged.
+- **Zero entries.** The `(not stated - ...)` marker, unchanged. On the edit path this is the one rule Step 6.7 overrides: a bullet an edit emptied gets `(none - removed on this edit)` instead, because zero entries the user just removed is not a bullet nobody answered.
 
 Dropping an unenforceable constraint is the commonest way a bullet lands under its floor - the rule above requires it, and a brief that starts with three constraints and drops two of them ends at one. That is the correct outcome, recorded as a shortfall. Putting "make it modern" back to reach 2 is not.
 
@@ -85,9 +85,9 @@ Output format:
 
 - **Problem:** <...>
 - **Audience:** <...>
-- **Success metric:** <... or "(not stated - need one observable, measurable outcome)">
-- **Must-haves:** <... or "(not stated - need 3-5 non-negotiable features or qualities)">
-- **Constraints:** <... or "(not stated - need 2-4 enforceable limits)">
+- **Success metric:** <... or "(not stated - need one observable, measurable outcome)" or "(none - removed on this edit)">
+- **Must-haves:** <... or "(not stated - need 3-5 non-negotiable features or qualities)" or "(none - removed on this edit)">
+- **Constraints:** <... or "(not stated - need 2-4 enforceable limits)" or "(none - removed on this edit)">
 
 _Source - Problem: <input name>; Audience: <input name>; Success metric: <input name or "not found">; Must-haves: <input name>; Constraints: <input name or "not found">._
 
@@ -98,6 +98,8 @@ _Above 3-5 must-haves - <n> stated: which of these are truly non-negotiable?_
 For a large document, cite the section or heading, not just the filename: `Problem: kickoff-notes.docx, section "Current process"`.
 
 A bullet short of its range carries the shortfall marker from Step 3 inside the bullet, after its entries. The footer is unaffected: a short bullet has a source like any other.
+
+An empty bullet has two markers and they are not interchangeable. `(not stated - ...)` means no source ever answered this bullet, and the text after the dash says what would. `(none - removed on this edit)` means a source did answer it and this edit's directive took the last entry out (Step 6.7), so there is nothing to ask for - asking would be asking for the thing the user just removed. The marker on the line is the only thing that tells the next reader which of the two happened, and an emptied bullet written `(not stated - ...)` reads as a bullet nobody has answered yet. Their footers differ for the same reason: a bullet that was never answered is sourced `not found`, and an emptied one keeps the source it had plus the directive that emptied it, because that is where its state came from.
 
 The two lines under the footer are where everything that happened to a bullet but is not in it goes: one per dropped entry, and one per bullet over its ceiling. Both are present only when they apply and are never shipped empty, and neither blocks the brief. On an incremental edit they are carried forward with the bullets, under the rules in Step 6. Until now the over-the-ceiling question was named in Step 3 and had nowhere in this format to sit, which is the same hole as the silent drop, one bullet along.
 

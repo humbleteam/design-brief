@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.0] - 2026-09-26
+
+- `(none - removed on this edit)` was a bullet state with no slot in the shape a reader copies. Step 6.7 has mandated it since 1.3.0 for a bullet an edit empties, and Step 5's output format offered one empty-bullet form: `(not stated - ...)`, the marker 6.7 names in the same sentence as the wrong answer for that case.
+- So the template handed a reader following it two moves, and 6.7 forbids one of them. The other is to improvise a marker Step 5 never showed, which is how a format stops being one.
+- Step 5 now carries both forms on all three optional bullets, and says which state picks which. `(not stated - ...)` means no source answered the bullet, and the text after the dash says what would. `(none - removed on this edit)` means a source did answer it and this edit's directive took the last entry out, so there is nothing to ask for.
+- Said what the marker is for: it is the only thing that tells the next reader which of the two happened. An emptied bullet written `(not stated - ...)` reads as a bullet nobody has answered yet, which is the re-asking Step 2 exists to prevent.
+- Named the footers, which differ for the same reason. A bullet that was never answered is sourced `not found`; an emptied one keeps the source it had plus the directive that emptied it, because that is where its state came from.
+- Step 3's "zero entries" bullet now names 6.7 as the one rule the edit path overrides, rather than sending an emptied bullet to `(not stated - ...)` and leaving 6.7 to contradict it two steps later. The README's marker list carries the second form too, in "What it does" and in "How it works".
+
 ## [1.6.0] - 2026-09-21
 
 - The drop line 1.5.0 shipped had no lifecycle on the incremental-edit path. The line exists to solicit a reply - it hands the user their own words back and asks what would make them checkable, and the skill calls it the one route by which a wish can legitimately return as a constraint - and Step 6 had no rule for receiving that reply.
