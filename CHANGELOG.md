@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.0] - 2026-10-05
+
+- `(none - removed on this edit)` has been mandated since 1.3.0, step 6.7, and 1.7.0 gave it a slot in the Step 5 output format and spelled out how its footer differs from `(not stated - ...)`. The README rendered it nowhere. Its only two appearances there were prose, in a What-it-does bullet and a How-it-works bullet, so the marker a reader copies existed in the format and in no example.
+- The footer half of the rule had never been shown at all, and it is the half a reader is most likely to get wrong: an emptied bullet keeps the source it had and appends the directive that emptied it, where the obvious move is `not found`.
+- The worked example gains a second update on the same running brief, a directive that removes the last entries in Must-haves. Every other bullet comes back byte-for-byte with its own source untouched, and the drop line rides along unanswered, as it did through the first update.
+- Must-haves is the bullet the example empties because it is the one carrying a shortfall marker, which makes a second question visible: what replaces `(2 of 3-5 - ...)` when the entries go. Not `(0 of 3-5 - ...)` - the shortfall marker reports entries falling short of a range and sits after them, so it needs entries to follow, and zero entries is its own case in Step 3 with its own marker.
+- The three wrong guesses are named one at a time under the block: why the bullet is not `(not stated - ...)`, why it is not a shortfall counting down to zero, and why its source is not `not found`.
+- No rule changed. Step 3's count cases, Step 5's format, and Step 6.7 are untouched, and every line of the new block is what they already require.
+
 ## [1.7.0] - 2026-09-26
 
 - `(none - removed on this edit)` was a bullet state with no slot in the shape a reader copies. Step 6.7 has mandated it since 1.3.0 for a bullet an edit empties, and Step 5's output format offered one empty-bullet form: `(not stated - ...)`, the marker 6.7 names in the same sentence as the wrong answer for that case.

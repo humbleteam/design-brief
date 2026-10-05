@@ -168,6 +168,57 @@ lands in Constraints and the line goes with it. Restated and still not checkable
 ("it should feel fresh"), it replaces the line rather than adding a second one
 underneath: one line per dropped entry, not one per attempt at it.
 
+A second update, this one removing rather than adding. Must-haves has carried two
+entries and a shortfall marker since the first brief, and the directive takes both
+out:
+
+```
+Second update - drop both must-haves. The ELD integration is out of scope for v1,
+and we've decided offline can wait for v2.
+```
+
+```
+## Design brief - Pathfinder (dispatch scheduling)
+
+- **Problem:** Dispatchers assign loads across 3 disconnected spreadsheets,
+  which is slow and causes missed delivery windows.
+- **Audience:** Freight dispatchers at mid-size trucking companies running
+  40-80 trucks.
+- **Success metric:** 30% fewer missed delivery windows in the first quarter.
+- **Must-haves:** (none - removed on this edit)
+- **Constraints:** Web only for v1 - no budget for a native mobile app;
+  WCAG 2.2 AA.
+
+_Source - Problem: kickoff call notes, July 8; Audience: kickoff call notes,
+July 8; Success metric: update; Must-haves: kickoff call notes, July 8 + second
+update; Constraints: kickoff call notes, July 8 + update._
+
+_Dropped as unenforceable - "should feel modern": what would make this
+checkable? A product it should look current against, a design system to match,
+or a specific visual quality someone other than the author can confirm._
+```
+
+Three things about that bullet, and each is a different reader's wrong guess.
+
+It is not `(not stated - need 3-5 non-negotiable features or qualities)`. That
+marker means no source ever answered the bullet, and the text after the dash says
+what would satisfy it. Here a source did answer it, and this directive took the
+answer out, so there is nothing to ask for: the question would be asking for the
+two entries the client just removed. The marker on the line is the only thing a
+later reader has to tell a bullet nobody has answered from one that was settled by
+a removal.
+
+It is not `(0 of 3-5 - ...)` either. The shortfall marker reports entries that fall
+short of a range and sits after them, so it needs entries to follow; zero entries is
+its own case with its own marker. The old `(2 of 3-5 - ...)` goes with the entries it
+was counting rather than counting down to nothing.
+
+And its source is not `not found`. A bullet that was never answered is sourced
+`not found`; an emptied one keeps the source it had and appends the directive that
+emptied it, because that is where its state came from. Problem, Audience, Success
+metric, and Constraints come back byte-for-byte with their own sources untouched,
+and the drop line rides along unanswered, as it did through the first update.
+
 ## How it works
 
 - **Read everything before asking anything.** Freetext, docs, transcripts, chat history - all read before a field is marked missing.
