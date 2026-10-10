@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0] - 2026-10-10
+
+- Step 6.3's unclear-target branch never said whether the brief comes back with the clarifying question, and it is the branch a single ambiguous directive lands on. Four other surfaces say an edit re-emits: the branch one line below it, which applies the clear parts and re-emits before asking about the unclear one; 6.10; the both-modes rule; and the edge case for a directive whose only change gets dropped, where the brief re-emits byte-for-byte and the line under it is the whole answer.
+- Silence next to a sibling that says it reads as deliberate, which is the worst form of the gap: a reader lands on the third branch, sees the fourth spell out a re-emit, and concludes the difference is the rule.
+- The branch now re-emits byte-for-byte and then asks. The reason is the one 8 already established - no bullet changed - and the brief is state the user holds, so a bare question replaces it with nothing while asking them to look at bullets they can no longer see.
+- The matching edge-case row carries the same, so the two surfaces a reader can reach agree, and the both-modes rule now names the zero-change case outright: an edit whose every added entry was dropped, or whose target was too unclear to apply, still re-emits all five. The count of bullets that moved is never what decides whether the brief ships.
+- No marker, format or count rule changed. Step 3's cases, Step 5's format and 6.7 are untouched.
+
 ## [1.8.0] - 2026-10-05
 
 - `(none - removed on this edit)` has been mandated since 1.3.0, step 6.7, and 1.7.0 gave it a slot in the Step 5 output format and spelled out how its footer differs from `(not stated - ...)`. The README rendered it nowhere. Its only two appearances there were prose, in a What-it-does bullet and a How-it-works bullet, so the marker a reader copies existed in the format and in no example.
