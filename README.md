@@ -251,6 +251,9 @@ Yes. "We're B2C now and drop the offline requirement" carries two clear changes,
 **What if I only have two must-haves?**
 The brief ships with two. The 3-5 range is the shape a complete input produces, not a quota the bullet has to fill: the bullet comes back as the two real entries plus `(2 of 3-5 - what else is non-negotiable here?)`. Padding it to three would mean inventing a non-negotiable feature, which is the one thing this skill will not do. The same holds the other way: nine stated must-haves all ship, with a question about which of them are truly non-negotiable, rather than a silent cut down to five.
 
+**Why did my constraint disappear from the brief?**
+Because someone other than its author could not check it. "Make it modern" has no test behind it, so it gets dropped from Constraints rather than rephrased into something that only sounds checkable. It does not disappear quietly: it ships on its own line under the brief, quoting your words as you wrote them and naming what would turn them into a constraint. That line is standing state, carried through every later edit until you answer it, and answering it is the only way the entry comes back - a checkable restatement ("match the information density of the Stripe dashboard") lands in Constraints and retires the line, while one that is still not checkable replaces the line instead of adding a second underneath it. Dropping is also the commonest reason the bullet ends up short of 2-4, and a bullet marked `(1 of 2-4 - ...)` is the correct outcome there, not a cue to put the wish back to reach the floor.
+
 **Can Claude write a design brief for me?**
 Yes, from whatever unstructured input you already have - transcripts, docs, chat threads, freetext. It will not invent a problem or audience it cannot source; those two fields trigger a gap report.
 

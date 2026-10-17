@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.10.0] - 2026-10-17
+
+- The drop line has been the skill's answer to an unenforceable constraint since 1.5.0, and 1.6.0 gave it a full lifecycle on the edit path: it is standing state, a checkable restatement retires it into the bullet, one that is still unenforceable replaces it rather than adding a second. The FAQ answered none of it. Its only occurrence of the word was "drop the offline requirement", an example directive in the two-changes answer, which is a removal the user asked for and not a drop the skill decided on.
+- That left the behaviour documented in three places a reader arrives at after deciding to read the file - one How-it-works bullet, the worked example, and the skill's own rules - and absent from the one section written for the question a reader arrives with. "What it does" does not carry it either, so nothing above the fold names it at all. The question is not an abstract one: a line the team wrote is missing from the bullet they expect it in, and the FAQ is where they look first.
+- New FAQ entry on why a constraint disappears. It names the test the entry failed, says the drop is not silent and where the line ships, and gives the one route back in: answering the line retires it into Constraints, and a restatement that is still not checkable replaces the line rather than stacking a second underneath.
+- It also closes the loop with the entry above it, on two must-haves. Dropping is the commonest reason a bullet lands under its range, so the shortfall marker a reader meets there and the drop line now point at each other instead of reading as two unrelated states.
+- No rule changed. Step 3's drop rules, Step 6.9's lifecycle, the edge-case rows and the Step 5 format are untouched, and every line of the answer is what they already require.
+
 ## [1.9.0] - 2026-10-10
 
 - Step 6.3's unclear-target branch never said whether the brief comes back with the clarifying question, and it is the branch a single ambiguous directive lands on. Four other surfaces say an edit re-emits: the branch one line below it, which applies the clear parts and re-emits before asking about the unclear one; 6.10; the both-modes rule; and the edge case for a directive whose only change gets dropped, where the brief re-emits byte-for-byte and the line under it is the whole answer.
