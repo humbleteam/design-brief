@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.11.0] - 2026-10-22
+
+- 1.7.0 gave the over-the-ceiling question a slot in the Step 5 format, and the slot had one form: `_Above 3-5 must-haves - <n> stated: which of these are truly non-negotiable?_`. The rule it implements covers three bullets. Step 3's count section names the ranges of all three optional bullets - one metric, 3-5 must-haves, 2-4 constraints - and its over-the-range case applies to any of them.
+- So a brief carrying six enforceable constraints, or two stated success metrics, reached a rule the format could not write. Step 5 already said one line per bullet over its ceiling, and the only line on offer was the must-haves one, which made three wrong outcomes reachable: writing `Above 3-5 must-haves` about Constraints, asking whether a constraint is "non-negotiable" when every entry in that bullet passed the enforceability test instead, or cutting to four - the one move the rules forbid outright.
+- The asymmetry was on one side of the range only, which is what hid it. The shortfall marker has carried a per-bullet question since it was written: `(2 of 3-5 - what else is non-negotiable here?)` on Must-haves and `(1 of 2-4 - what else is enforceable here?)` on Constraints, both in the README example. The skill had already decided these bullets raise different questions, and then offered one ceiling line for all of them.
+- The ceiling line now has one form per optional bullet, and each question comes from that bullet's own test. Must-haves, above 5: which are truly non-negotiable. Constraints, above 4: which are limits on the solution and which are features it has to have - Step 6.2 already routes a non-negotiable feature to Must-haves, so the answer usually moves entries rather than deleting them. Success metric, above 1: which single outcome the work is judged on, this being the one bullet whose own definition sets its ceiling, so two metrics leave it undefined rather than long.
+- Step 3's over-the-range case carries the three questions, Step 5 says the lines ship in the brief's own bullet order and that a brief can carry up to three of them, the both-modes rule says every optional bullet has a ceiling, and the README's counts bullet stops describing the over side as a must-haves case.
+- Two new edge-case rows, for Constraints above its ceiling and for two or more stated success metrics; the existing row now names Must-haves rather than reading as the only bullet with a ceiling.
+- No count, marker or footer rule changed. The ranges are the same, nothing is cut to fit a ceiling, and the shortfall and empty-bullet markers are untouched.
+
 ## [1.10.0] - 2026-10-17
 
 - The drop line has been the skill's answer to an unenforceable constraint since 1.5.0, and 1.6.0 gave it a full lifecycle on the edit path: it is standing state, a checkable restatement retires it into the bullet, one that is still unenforceable replaces it rather than adding a second. The FAQ answered none of it. Its only occurrence of the word was "drop the offline requirement", an example directive in the two-changes answer, which is a removal the user asked for and not a drop the skill decided on.
