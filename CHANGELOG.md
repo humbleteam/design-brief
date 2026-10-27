@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0] - 2026-10-27
+
+- 1.7.0 gave the over-the-ceiling question a slot in the Step 5 format and 1.11.0 split it into one form per optional bullet, so the line has been specified for three releases and rendered in no example. The README's three worked briefs all run on one input that states two must-haves and one constraint, so every marker visible there is a shortfall marker.
+- That is the 1.8.0 finding one line along: a form that exists in the format block and in no example. The reader who needs this one is the reader whose input went over the range, and the brief in front of them has nothing to compare against.
+- The FAQ answer on short bullets already described the ceiling case in prose and quoted the shortfall marker verbatim, which is what made the omission easy to miss. It now quotes the ceiling line too, with the count filled in, and says where the line goes: under the source footer, beside any dropped entry, in the brief's bullet order, rather than inside the bullet like the marker directly above it in the same answer.
+- The answer also names that constraints above 4 and a second success metric carry their own forms, so a reader who went over on one of those does not copy the must-haves wording into a bullet whose question is a different one. No count, marker, rule or output format changed.
+
 ## [1.11.0] - 2026-10-22
 
 - 1.7.0 gave the over-the-ceiling question a slot in the Step 5 format, and the slot had one form: `_Above 3-5 must-haves - <n> stated: which of these are truly non-negotiable?_`. The rule it implements covers three bullets. Step 3's count section names the ranges of all three optional bullets - one metric, 3-5 must-haves, 2-4 constraints - and its over-the-range case applies to any of them.
