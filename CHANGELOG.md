@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.13.0] - 2026-11-05
+
+- Step 5 says both lines under the footer are "carried forward with the bullets, under the rules in Step 6", and Step 6 had a rule for one of them. Every standing-state rule in the skill - 6.9, the four edge-case rows on restatements, the closing rule - is written for the drop line. Nothing anywhere said what an edit does to a ceiling line.
+- The ceiling line is the one that goes stale rather than merely persisting, because its text carries a count. A brief with nine must-haves carries `_Above 3-5 must-haves - 9 stated: which of these are truly non-negotiable?_`. The directive "keep these five, drop the rest" is the answer to that question: 6.7 handles the removal and five is inside 3-5, so no shortfall marker, 6.9 does not reach it, and Step 5's "carried forward" was the only instruction that did. The brief re-emitted the question under a bullet holding five, with a count of nine. That is the asking-twice failure Step 2 exists to prevent, reached from the carrying side.
+- New rule 6.10. `<n>` is read off the bullet as the edit re-emits it and never carried from the line the brief arrived with, so nine cut to seven re-emits as `7 stated` and nine cut to five retires the line. An edit that pushes a bullet over its ceiling grows the line, which 6.8 already covers by running Step 3's rules on an added entry. The metric's ceiling is one, so two metrics reduced to one retires its line and leaves the bullet defined again. The old item 10, re-emit the full brief, is now 11; nothing referenced it by number.
+- The two lines are no longer described as behaving alike. A drop line quotes something the brief no longer holds, which is why 9 forbids reconstructing one from a bullet that looks short. A ceiling line only counts what the bullet still shows, so a pasted brief with a bullet over its ceiling and no line gets one generated - the asymmetry is the reason, not an exception to it.
+- Three edge-case rows and a closing rule carry the same rule, so Step 5, Step 6 and the edge-case table state it in one form.
+- Seen and not taken, carried over from 10-27 and now deferred twice: the README FAQ quotes the must-haves ceiling line verbatim and names the constraints and success-metric forms in prose only, so a reader who went over on one of those two has to build the line from the Step 5 format block. SKILL.md carries all three forms, so no output is wrong today.
+
 ## [1.12.0] - 2026-10-27
 
 - 1.7.0 gave the over-the-ceiling question a slot in the Step 5 format and 1.11.0 split it into one form per optional bullet, so the line has been specified for three releases and rendered in no example. The README's three worked briefs all run on one input that states two must-haves and one constraint, so every marker visible there is a shortfall marker.
