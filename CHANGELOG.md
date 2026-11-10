@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0] - 2026-11-10
+
+- The README FAQ quoted one of the three ceiling lines verbatim and left the other two in prose. "What if I only have two must-haves?" shows `_Above 3-5 must-haves - 9 stated: ..._` in a block, and then said only that constraints above 4 and a second success metric each get their own form of that line. A reader who went over on one of those two bullets had the fact that a line exists and not the line, so the only place to read its wording was the Step 5 format block in `SKILL.md`.
+- Both forms are now quoted in the FAQ as `SKILL.md` states them, with a count filled in: `_Above 2-4 constraints - 6 stated: ..._` and `_Above one success metric - 2 stated: ..._`. The metric's ceiling is one, so the answer names a second metric as already over it rather than leaving the reader to infer the threshold from a range it does not have.
+- The answer also says what the three lines do together, which the must-haves-only version could not: a brief carries up to three of them at once, one per optional bullet, in the brief's own bullet order, and the count in each is read off the bullet as it ships, so an edit that brings a bullet back inside its range retires its line. That is 6.10 stated from the reader's side, not a new rule.
+- No rule changed and no output changed. `SKILL.md` already carried all three forms, so nothing this skill produced was ever wrong - the gap was that the README made one of the three cheap to find and the other two expensive. Carried over from 10-27 and 11-05, where it was logged as seen and not taken twice.
+
 ## [1.13.0] - 2026-11-05
 
 - Step 5 says both lines under the footer are "carried forward with the bullets, under the rules in Step 6", and Step 6 had a rule for one of them. Every standing-state rule in the skill - 6.9, the four edge-case rows on restatements, the closing rule - is written for the drop line. Nothing anywhere said what an edit does to a ceiling line.

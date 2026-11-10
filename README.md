@@ -255,7 +255,14 @@ The brief ships with two. The 3-5 range is the shape a complete input produces, 
 _Above 3-5 must-haves - 9 stated: which of these are truly non-negotiable?_
 ```
 
-That is a silent cut down to five avoided, not a list trimmed to fit. Constraints above 4 and a second success metric each get their own form of that line, carrying that bullet's own question rather than the must-haves one.
+That is a silent cut down to five avoided, not a list trimmed to fit. Each optional bullet has its own ceiling and its own form of that line, carrying that bullet's own question rather than the must-haves one - and the metric's ceiling is one, so a second metric is already over it:
+
+```
+_Above 2-4 constraints - 6 stated: which of these are limits on the solution, and which are features it has to have?_
+_Above one success metric - 2 stated: which single outcome is the work judged on?_
+```
+
+A brief can carry up to three of these lines at once, one per optional bullet, in the brief's own bullet order. The count in each is read off the bullet as it ships, so a later edit that brings the bullet back inside its range retires the line.
 
 **Why did my constraint disappear from the brief?**
 Because someone other than its author could not check it. "Make it modern" has no test behind it, so it gets dropped from Constraints rather than rephrased into something that only sounds checkable. It does not disappear quietly: it ships on its own line under the brief, quoting your words as you wrote them and naming what would turn them into a constraint. That line is standing state, carried through every later edit until you answer it, and answering it is the only way the entry comes back - a checkable restatement ("match the information density of the Stripe dashboard") lands in Constraints and retires the line, while one that is still not checkable replaces the line instead of adding a second underneath it. Dropping is also the commonest reason the bullet ends up short of 2-4, and a bullet marked `(1 of 2-4 - ...)` is the correct outcome there, not a cue to put the wish back to reach the floor.
